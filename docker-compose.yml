@@ -1,0 +1,15 @@
+version: '2.0'
+
+services:
+
+   kafka_connect_splunk_debian:
+
+      image: daki/kafka_connnect_splunk_debian
+      container_name: kafka_connect_splunk_debian
+      hostname: kafka_connect_splunk_debian
+      ports:
+         - "8083:8083"
+
+      volumes:
+        - /opt/docker/kafka-connect-splunk/config:/opt/splunk-kafka-connect/config
+
