@@ -37,6 +37,8 @@ COPY ./scripts/start.sh /opt/splunk-kafka-connect/config/start.sh
 # Vim configuration
 ADD ./tools/vim/.vimrc /root/.vimrc
 
+RUN ln -snf /usr/share/zoneinfo/Europe/Paris /etc/localtime && echo Europe/Paris > /etc/timezone
+
 WORKDIR /opt/splunk-kafka-connect
 
 VOLUME ["/opt/splunk-kafka-connect/config"]

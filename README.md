@@ -30,6 +30,7 @@ shell bash:      Launch shell in container
 
 ### bind a new connector
 
+`
 curl 192.168.2.38:8083/connectors -X POST -H "Content-Type: application/json" -d'{
   "name": "splunk-prod",
     "config": {
@@ -46,6 +47,7 @@ curl 192.168.2.38:8083/connectors -X POST -H "Content-Type: application/json" -d
      "splunk.hec.max.batch.size":"50"
     }
 }'
+` 
 
 splunk.hec.max.batch.size : Maximum batch size when posting events to Splunk. The size is the actual number of Kafka events, and not byte size. By default, this is set to 100. 
 
