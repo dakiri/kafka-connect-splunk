@@ -11,5 +11,5 @@ services:
          - "${LISTEN_IP}:8083:8083"
 
       volumes:
-        - ./config:/opt/splunk-kafka-connect/config
+        - ./mount/config:/opt/splunk-kafka-connect/config
 

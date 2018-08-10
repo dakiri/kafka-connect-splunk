@@ -1,0 +1,5 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=
+
+0 0 * * * root /usr/sbin/logrotate /etc/logrotate.conf > /dev/null

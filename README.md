@@ -4,27 +4,27 @@ The image contain the necessary to recompile the connector from sources.
 
 ## Prepare the configuration
 
-A persistent volume can be bind to /opt/splunk-kafka-connect/config
+A persistent volume can be bind to /opt/splunk-kafka-connect/config defaut on the docker-compose is map to ./mount/config
 
-Must contain :
+Must contain the configuration : connect-distributed.properties 
 
-- the start script start.sh which responsible for :
-   + edit /etc/hosts in case of hosting the kafka container and the broker on the same machine
-   + launching the connector service
-
-- the configuration like connect-distributed-quickstart.properties 
-
-In this file edit the parameter bootstrap.servers to match your server url. 
+In this file edit the parameter bootstrap.servers to match your(s) server(s) url. 
 
 ## Run
 
 Use makefile to start container via docker-compose
 
-run up:          Run container in console mode
-daemon:          Run container in daemon mode
-restart:	 Restart the daemon
-stop:            Stop container
-shell bash:      Launch shell in container
+run or up:          Run container in console mode
+daemon:             Run container in daemon mode
+restart:            Restart the daemon
+stop:               Stop container
+shell bash:         Launch shell in container
+
+## Log
+
+Logs of the connector and supervisor are put in /var/log/supervisor (can be mount)
+
+Logrotate applied a compression and rotation for 14 days
 
 ## Using the connector
 
@@ -51,6 +51,9 @@ curl 192.168.2.38:8083/connectors -X POST -H "Content-Type: application/json" -d
 
 splunk.hec.max.batch.size : Maximum batch size when posting events to Splunk. The size is the actual number of Kafka events, and not byte size. By default, this is set to 100. 
 
+
+Be careful with "splunk.hec.ack.enabled" that must match the setting of the Splunk HEC.
+
 ### List all connector
 
 curl http://192.168.2.38:8083/connectors
@@ -68,7 +71,9 @@ or make build-nc  Build the container without caching
 
 ## Compile a new version
 
+`
 make daemon
 make shell
 /opt/src/build.sh
+`
 
