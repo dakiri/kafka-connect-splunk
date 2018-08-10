@@ -38,6 +38,7 @@ COPY ./build/scripts/start.sh /opt/splunk-kafka-connect/start.sh
 # Supervisor config
 RUN mkdir -p /var/log/supervisor
 ADD build/supervisor/conf/kafka-connect.conf /etc/supervisor/conf.d/
+ADD build/supervisor/conf/supervisord.conf /etc/supervisor
 
 COPY build/cron/crontab /etc/crontab
 RUN chmod 600 /etc/crontab
