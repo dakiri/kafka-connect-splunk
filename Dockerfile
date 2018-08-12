@@ -46,7 +46,7 @@ RUN chmod 600 /etc/crontab
 COPY build/logrotate/logrotate.conf /etc/
 
 # Vim configuration
-ADD ./tools/vim/.vimrc /root/.vimrc
+ADD ./build/vim/.vimrc /root/.vimrc
 
 RUN ln -snf /usr/share/zoneinfo/Europe/Paris /etc/localtime && echo Europe/Paris > /etc/timezone
 
