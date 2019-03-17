@@ -8,8 +8,8 @@ services:
       container_name: "${CONTAINER_NAME}"
       hostname: "${HOSTNAME}"
       ports:
-         - "${LISTEN_IP}:8083:8083"
+         - "8090:8083"
 
       volumes:
-        - ./mount/config:/opt/splunk-kafka-connect/config
+        - /data/etc/kafka-connect-splunk:/opt/splunk-kafka-connect/config
 

@@ -26,6 +26,19 @@ Logs of the connector and supervisor are put in /var/log/supervisor (can be moun
 
 Logrotate applied a compression and rotation for 14 days
 
+## Prepare connector on Splunk
+
+Enable collector :
+
+Settings → Data Input → HTTP Event Collector → Global settings
+
+Create New Token :
+
+Settings → Data Input → HTTP Event Collector → New Token 
+
+( Enable indexer acknowledgement must be enabled )
+
+
 ## Using the connector
 
 ### bind a new connector

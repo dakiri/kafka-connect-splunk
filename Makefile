@@ -4,6 +4,7 @@ include $(cnf)
 help:           ## Show this help.
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
+.PHONY: build
 build:          ## Build the container
 	docker build -t $(DOCKER_REPO)/$(APP_NAME) .
 

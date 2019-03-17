@@ -18,6 +18,7 @@ RUN tar xzf /bin/apache-maven-3.5.4-bin.tar.gz -C /opt/
 ENV PATH=${PATH}:/opt/apache-maven-3.5.4/bin
 
 # Prepare sources
+RUN touch /tmp/toto
 RUN mkdir -p /opt/src
 COPY ./build/scripts/build.sh /opt/src/build.sh
 COPY ./build/src/develop.zip /opt/src/resources/develop.zip
